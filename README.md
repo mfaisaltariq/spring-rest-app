@@ -1,4 +1,4 @@
-# react-and-spring-data-rest
+# REACT AND SPRING DATA REST APP
 
 The application has a react frontend and a Spring Boot Rest API, packaged as a single module Maven application.
 
@@ -27,3 +27,18 @@ To start the application you can just run (`java -jar target/react-and-spring-da
 ---
 
 To see the frontend, navigate to http://localhost:8080. You are immediately redirected to a login form. Log in as `greg/turnquist`
+
+
+### BUILD USING DOCKER
+
+To Build the application image run the following command in the main directorys
+
+```
+docker build -t spring-rest-be:1.0 .
+```
+
+Once the build has succeeded run the container using the below given command
+
+```
+docker run -d --name spring-be -p 8080:8080 spring-rest-be:1.0
+```
