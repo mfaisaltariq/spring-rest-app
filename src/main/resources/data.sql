@@ -1,0 +1,1 @@
+insert into Manager('name', 'password', 'roles') values ('faisal2', 'faisal', 'ROLE_MANAGER');
