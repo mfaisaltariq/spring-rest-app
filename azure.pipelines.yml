@@ -10,34 +10,27 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  subscriptionEndpoint: 'AzurePaidSC2'
-  imageName: 'springrestapp'
-  containerRegistry: 'myregfaisal.azurecr.io'
+  registryConnection: 'acrConnection'
+  imageRepository: 'springrestapp'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: '$(Build.BuildNumber)'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
 steps: 
-- task: Docker@1
+- task: Docker@2
   displayName: Build docker image
   inputs:
-    command: Build an image
+    command: build
+    containerRegistry: $(registryConnection)
+    repository: $(imageRepository)
     dockerFile: $(dockerfilePath)
-    imageName: $(imageName)
-    containerregistrytype: Azure Container Registry
-    azureSubscriptionEndpoint: $(subscriptionEndpoint)
-    azureContainerRegistry: $(containerRegistry)
-    tags: |
-          $(tag)
-- task: Docker@1
+    tags: $(tag)
+- task: Docker@2
   displayName: Push Docker image
   inputs:
-    command: Push an image
-    containerregistrytype: Azure Container Registry
-    azureSubscriptionEndpoint: $(subscriptionEndpoint)
-    azureContainerRegistry: $(containerRegistry)
-    imageName: $(imageName)
-    tags: |
-          $(tag)
+    command: push
+    containerRegistry: $(registryConnection)
+    repository: $(imageRepository)
+    tags: $(tag)
