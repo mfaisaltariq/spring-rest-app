@@ -1,0 +1,69 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionId": {
+            "value": ""
+        },
+        "name": {
+            "value": "springrestapp"
+        },
+        "location": {
+            "value": "UK South"
+        },
+        "hostingPlanName": {
+            "value": "ASP-myResourceGroupSpringApp-springrestapp"
+        },
+        "serverFarmResourceGroup": {
+            "value": "myResourceGroupSpringApp"
+        },
+        "alwaysOn": {
+            "value": true
+        },
+        "sku": {
+            "value": "Standard"
+        },
+        "skuCode": {
+            "value": "S1"
+        },
+        "workerSize": {
+            "value": "0"
+        },
+        "workerSizeId": {
+            "value": "0"
+        },
+        "numberOfWorkers": {
+            "value": "1"
+        },
+        "dockerRegistryUrl": {
+            "value": "https://myspringregistry.azurecr.io"
+        },
+        "dockerRegistryUsername": {
+            "value": "myspringregistry"
+        },
+        "dockerRepositoryName": {
+            "value": "springrestapp"
+        },
+        "imageTag": {
+            "value": ""
+        },
+        "dockerRegistryPassword": {
+            "value": ""
+        },
+        "dockerRegistryStartupCommand": {
+            "value": ""
+        },
+        "scaleCPUThreshold": {
+            "value": 75
+        },
+        "scaleMinimumInstances": {
+            "value": "1"
+        },
+        "scaleMaximumInstances": {
+            "value": "3"
+        },
+        "scaleDefaultInstances": {
+            "value": "1"
+        }
+    }
+}
